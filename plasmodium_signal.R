@@ -1,0 +1,1 @@
+keyword:"Apicoplast [KW-0933]" taxonomy:"Plasmodium [5820]" annotation:(type:transit evidence:manual) AND reviewed:yes
