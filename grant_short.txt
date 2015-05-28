@@ -1,0 +1,7 @@
+"AUC"	"H"
+"signalPnotm"	0.8356	0.5283
+"signalPtm"	0.7928	0.4625
+"predsi"	0.6597	0.206
+"phobius"	0.7963	0.4535
+"signalHsmm"	0.9449	0.7392
+"signalHsmm1987"	0.9449	0.7392
