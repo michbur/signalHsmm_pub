@@ -69,6 +69,11 @@ metrics <- do.call(rbind, lapply(list(signalPnotm = read_signalp41("./benchmark/
                                       signalHsmm = signal.hsmm1987_preds,
                                       signalHsmm1987 = signal.hsmm1987_preds), function(predictor)
                                         HMeasure(real_labels, predictor[["sp.probability"]])[["metrics"]]))
+TP <- as.numeric(metrics[["TP"]])
+FP <- as.numeric(metrics[["FP"]])
+TN <- as.numeric(metrics[["TN"]])
+FN <- as.numeric(metrics[["FN"]])
 
 
-write.table(metrics[, c("AUC", "H")], sep = "\t", file = "grant_short.txt")
+write.table(round(cbind(metrics[, c("AUC", "H")], 
+                  MCC = (TP*TN - FP*FN)/sqrt((TP + FP)*(TP + FN)*(TN + FP)*(TN + FN))), 4), sep = "\t", file = "grant_short.txt")
