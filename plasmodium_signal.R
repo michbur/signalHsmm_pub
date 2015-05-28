@@ -32,7 +32,7 @@ plas_neg <- read.fasta("plas_neg.fasta")
 system("/home/michal/signalp-4.1/signalp -t euk -f short plas_neg.fasta > plas_neg.short_out")
 system("/home/michal/signalp-4.1/signalp -t euk -f short plas_pos.fasta > plas_pos.short_out")
 predSignal <- rbind(read_signalp41("plas_pos.short_out"), 
-      read_signalp41("plas_neg.short_out"))
+                    read_signalp41("plas_neg.short_out"))
 
 signal.hsmm1987_preds <- pred2df(predict(signal.hsmm1987, c(plas_pos, plas_neg)))
 
