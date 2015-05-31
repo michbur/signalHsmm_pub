@@ -66,6 +66,7 @@ metrics <- do.call(rbind, lapply(list(signalPnotm = read_signalp41("./benchmark/
                                       signalPtm = read_signalp41("./benchmark/signaP41tm.txt"), 
                                       predsi = read_predsi("./benchmark/predsi.txt"),
                                       phobius = read_phobius("./benchmark/phobius.txt"),
+                                      philius = read_philius("./benchmark/philius.xml"),
                                       signalHsmm = signal.hsmm1987_preds,
                                       signalHsmm1987 = signal.hsmm1987_preds), function(predictor)
                                         HMeasure(real_labels, predictor[["sp.probability"]])[["metrics"]]))
