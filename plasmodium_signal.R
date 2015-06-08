@@ -60,6 +60,8 @@ metrics <- do.call(rbind, lapply(list(signalP = predSignal, signalHsmm = signal.
                                       signalHsmm1987 = signal.hsmm1987_preds), function(predictor)
                                         HMeasure(real_labels, predictor[["sp.probability"]])[["metrics"]]))
 
+
+
 plas_bench <- c(plas_pos, plas_neg)
 save(plas_bench, real_labels, file = "plasmodium_benchmark.RData")
 

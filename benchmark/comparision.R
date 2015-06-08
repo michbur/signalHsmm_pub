@@ -78,3 +78,10 @@ FN <- as.numeric(metrics[["FN"]])
 
 write.table(round(cbind(metrics[, c("AUC", "H")], 
                   MCC = (TP*TN - FP*FN)/sqrt((TP + FP)*(TP + FN)*(TN + FP)*(TN + FN))), 4), sep = "\t", file = "grant_short.txt")
+
+
+metrics <- t(do.call(rbind, lapply(list(signalPnotm = read_signalp41("./benchmark/signaP41notm.txt"), 
+                                      signalPtm = read_signalp41("./benchmark/signaP41tm.txt"), 
+                                      predsi = read_predsi("./benchmark/predsi.txt"),
+                                      phobius = read_phobius("./benchmark/phobius.txt")), function(predictor)
+                                        predictor[["sp.probability"]])))
