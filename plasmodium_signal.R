@@ -59,6 +59,13 @@ real_labels <- c(rep(1, length(plas_pos)), rep(0, length(plas_neg)))
 metrics <- do.call(rbind, lapply(list(signalP = predSignal, signalHsmm = signal.hsmm1987_preds,
                                       signalHsmm1987 = signal.hsmm1987_preds), function(predictor)
                                         HMeasure(real_labels, predictor[["sp.probability"]])[["metrics"]]))
+
+
+
+plas_bench <- c(plas_pos, plas_neg)
+save(plas_bench, real_labels, file = "plasmodium_benchmark.RData")
+
+
 #wow!
 
 #library(pROC)
