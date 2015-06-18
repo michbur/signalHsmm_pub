@@ -86,3 +86,12 @@ other_software <- t(do.call(rbind, lapply(list(signalPnotm = read_signalp41("./b
                                       phobius = read_phobius("./benchmark/phobius.txt")), function(predictor)
                                         predictor[["sp.probability"]])))
 write.csv2(other_software, file = "other_soft.csv")
+
+
+write.csv2(t(do.call(rbind, lapply(list(signalPnotm = read_signalp41("./benchmark/signaP41notm.txt"), 
+                             signalPtm = read_signalp41("./benchmark/signaP41tm.txt"), 
+                             predsi = read_predsi("./benchmark/predsi.txt"),
+                             phobius = read_phobius("./benchmark/phobius.txt"),
+                             philius = read_philius("./benchmark/philius.xml")), function(predictor)
+                               predictor[["sp.probability"]]))),
+           file = "benchmark_plas_other.csv", row.names = FALSE)
